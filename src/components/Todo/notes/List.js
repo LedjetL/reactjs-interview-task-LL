@@ -3,7 +3,7 @@ import Card from "../category/Card";
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import app from "../../config/firebase";
 
-function List() {
+function List({ resetList }) {
   const db = getFirestore(app);
   const [categories, setCategories] = useState([]);
 
@@ -21,7 +21,7 @@ function List() {
 
   useEffect(() => {
     getCategories();
-  }, [getCategories]);
+  }, [resetList]);
 
   return (
     <div>
