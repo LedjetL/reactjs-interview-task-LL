@@ -14,11 +14,14 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
-function NoteModal({handleClose,children,open}) {
+function NoteModal({ handleClose, children, open }) {
   return (
-    <div> 
+    <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
