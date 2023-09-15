@@ -7,6 +7,7 @@ function NoteButton(props) {
       onClick={props.onClick}
       className={`w-full h-8 ${props.className}`}
       variant="contained"
+      color={props.color}
     >
       <span className="w-full">{props.text}</span>
       {props.icon}

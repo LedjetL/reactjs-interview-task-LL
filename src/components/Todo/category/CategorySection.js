@@ -8,7 +8,7 @@ import List from "../notes/List";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import firebaseApp from "../../config/firebase";
 
-function CategorySection() {
+function CategorySection({setSelectedCategory, selectedCategory}) {
   const [open, setOpen] = useState(false);
   const [resetList, setResetList] = useState(0);
   const handleOpen = () => setOpen(true);
@@ -37,8 +37,9 @@ function CategorySection() {
         onClick={handleOpen}
         text="Create Category"
         icon={<DoneIcon />}
+        color="success"
       />
-      <List resetList={resetList}/>
+      <List setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} resetList={resetList}/>
       <NoteModal handleClose={handleClose} open={open}>
         <ModalCategory
           handleClose={handleClose}
