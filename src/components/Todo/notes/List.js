@@ -1,43 +1,50 @@
-import React, { useEffect, useState } from "react";
-import Card from "../category/Card";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
-import app from "../../config/firebase";
+import Card from "../notes/Card";
+import React, { useState, useEffect } from "react";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore"; // Import Firestore functions
+import firebaseApp from "../../config/firebase"; // Import your Firebase configuration here
+function List({ setOpenEdit, selectedCategory, openAddNote, resetFilter }) {
+  const [notesList, setNotesList] = useState([]); // State for the list of notes
+  const db = getFirestore(firebaseApp);
 
-function List({ resetList, setSelectedCategory, selectedCategory }) {
-  const db = getFirestore(app);
-  const [categories, setCategories] = useState([]);
-  console.log(categories);
-  async function getCategories() {
+  // Function to fetch notes based on a specific category ID
+  const fetchNotes = async (categoryId) => {
     try {
-      const categoryCol = collection(db, "category");
-      const citySnapshot = await getDocs(categoryCol);
-      const cityList = citySnapshot.docs.map((doc) => {
+      const notesCollection = collection(db, "notes");
+      const notesQuery = query(
+        notesCollection,
+        where("categoryId", "==", categoryId)
+      );
+      const notesSnapshot = await getDocs(notesQuery);
+      const notesData = notesSnapshot.docs.map((doc) => {
         return {
           ...doc.data(),
           id: doc.id,
         };
       });
-      setCategories(cityList);
+      setNotesList(notesData);
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      console.error("Error fetching notes:", error);
     }
-  }
+  };
 
   useEffect(() => {
-    getCategories();
-  }, [resetList]);
+    if (selectedCategory) {
+      fetchNotes(selectedCategory.id);
+    }
+  }, [selectedCategory, openAddNote, resetFilter]); // Fetch notes whenever selectedCategory changes
 
   return (
-    <div>
-      {categories.map((item) => (
-        <Card
-          setSelectedCategory={setSelectedCategory}
-          selectedCategory={selectedCategory}
-          id={item.id}
-          title={item.name}
-        />
+    <>
+      {notesList.map((note) => (
+        <Card note={note} setOpenEdit={setOpenEdit} />
       ))}
-    </div>
+    </>
   );
 }
 

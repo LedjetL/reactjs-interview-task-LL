@@ -4,11 +4,16 @@ import NoteButton from "../../ui/NoteButton";
 import NoteModal from "../../ui/NoteModal";
 import ModalCategory from "./ModalCategory";
 import DoneIcon from "@mui/icons-material/Done";
-import List from "../notes/List";
+import List from "../category/List";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import firebaseApp from "../../config/firebase";
 
-function CategorySection({setSelectedCategory, selectedCategory}) {
+function CategorySection({
+  setSelectedCategory,
+  selectedCategory,
+  setOpenAddNote,
+  setOpenEdit,
+}) {
   const [open, setOpen] = useState(false);
   const [resetList, setResetList] = useState(0);
   const handleOpen = () => setOpen(true);
@@ -25,12 +30,16 @@ function CategorySection({setSelectedCategory, selectedCategory}) {
       console.log("Category added with ID: ", docRef.id);
       // Optionally, you can reset the category text input here:
       setCategoryText("");
-      setResetList(resetList+1)
+      setResetList(resetList + 1);
     } catch (error) {
       console.error("Error adding category: ", error);
     }
   };
-
+  const handleCategoryClick = (id) => {
+    setOpenEdit(null);
+    setSelectedCategory({ id: id });
+    setOpenAddNote(false);
+  };
   return (
     <CategoryLayout className="p-3">
       <NoteButton
@@ -39,7 +48,11 @@ function CategorySection({setSelectedCategory, selectedCategory}) {
         icon={<DoneIcon />}
         color="success"
       />
-      <List setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} resetList={resetList}/>
+      <List
+        handleCategoryClick={handleCategoryClick}
+        selectedCategory={selectedCategory}
+        resetList={resetList}
+      />
       <NoteModal handleClose={handleClose} open={open}>
         <ModalCategory
           handleClose={handleClose}
