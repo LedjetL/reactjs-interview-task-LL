@@ -16,7 +16,7 @@ function Card({ note, setOpenEdit }) {
         }
       >
         <h3 className="text-lg font-semibold">{note.title}</h3>
-        <p className="text-md">{note.description}</p>
+        <p className="text-md break-words line-clamp-3">{note.description}</p>
         <Divider />
       </div>
     </>

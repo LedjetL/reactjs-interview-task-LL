@@ -6,20 +6,36 @@ import {
   query,
   where,
   getDocs,
-} from "firebase/firestore"; // Import Firestore functions
-import firebaseApp from "../../config/firebase"; // Import your Firebase configuration here
-function List({ setOpenEdit, selectedCategory, openAddNote, resetFilter }) {
-  const [notesList, setNotesList] = useState([]); // State for the list of notes
+} from "firebase/firestore";
+import firebaseApp from "../../config/firebase";
+
+function List({
+  setOpenEdit,
+  selectedCategory,
+  openAddNote,
+  resetFilter,
+  searchQuery,
+}) {
+  const [notesList, setNotesList] = useState([]);
   const db = getFirestore(firebaseApp);
 
-  // Function to fetch notes based on a specific category ID
   const fetchNotes = async (categoryId) => {
     try {
       const notesCollection = collection(db, "notes");
-      const notesQuery = query(
-        notesCollection,
-        where("categoryId", "==", categoryId)
-      );
+      let notesQuery;
+      if (searchQuery) {
+        notesQuery = query(
+          notesCollection,
+          where("categoryId", "==", categoryId),
+          where("title", "==", searchQuery)
+        );
+      } else {
+        notesQuery = query(
+          notesCollection,
+          where("categoryId", "==", categoryId)
+        );
+      }
+
       const notesSnapshot = await getDocs(notesQuery);
       const notesData = notesSnapshot.docs.map((doc) => {
         return {
@@ -35,14 +51,14 @@ function List({ setOpenEdit, selectedCategory, openAddNote, resetFilter }) {
 
   useEffect(() => {
     if (selectedCategory) {
-      fetchNotes(selectedCategory.id);
+      fetchNotes(selectedCategory.id, searchQuery);
     }
-  }, [selectedCategory, openAddNote, resetFilter]); // Fetch notes whenever selectedCategory changes
+  }, [selectedCategory, openAddNote, resetFilter, searchQuery]);
 
   return (
     <>
       {notesList.map((note) => (
-        <Card note={note} setOpenEdit={setOpenEdit} />
+        <Card key={note.id} note={note} setOpenEdit={setOpenEdit} />
       ))}
     </>
   );

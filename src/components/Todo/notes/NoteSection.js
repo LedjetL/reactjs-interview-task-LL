@@ -3,6 +3,8 @@ import NoteLayout from "../../layout/NoteLayout";
 import NoteButton from "../../ui/NoteButton";
 import AddEditNote from "./AddEditNote";
 import List from "../notes/List";
+import { TextField } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 function NoteSection({
   selectedCategory,
@@ -13,7 +15,9 @@ function NoteSection({
 }) {
   const [noteText, setNoteText] = useState(""); // State for the note text
   const [description, setDescription] = useState(""); // State for the description
-  const [resetFilter,setResetFilter] = useState(0)
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
+  const [resetFilter, setResetFilter] = useState(0);
+
   return (
     <>
       <NoteLayout className="p-3" openEdit={openEdit}>
@@ -22,13 +26,21 @@ function NoteSection({
             <NoteButton
               text="Create Note"
               color="success"
-              className="w-52"
+              className="w-52  "
+              icon={<AddIcon className="border-l-2 border-gray-500" />}
               onClick={() => {
                 setOpenAddNote(true);
                 setOpenEdit(null);
                 setNoteText("");
                 setDescription("");
               }}
+            />
+            <TextField
+              size="small"
+              label="Search"
+              sx={{ marginLeft: "10px" }}
+              value={searchQuery} // Bind the search query value
+              onChange={(e) => setSearchQuery(e.target.value)} // Update search query state
             />
             {openAddNote ? (
               <AddEditNote
@@ -46,6 +58,7 @@ function NoteSection({
                 selectedCategory={selectedCategory}
                 openAddNote={openAddNote}
                 resetFilter={resetFilter}
+                searchQuery={searchQuery} // Pass search query to the List component
               />
             )}
           </>

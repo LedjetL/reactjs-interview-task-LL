@@ -45,13 +45,17 @@ function CategorySection({
       <NoteButton
         onClick={handleOpen}
         text="Create Category"
-        icon={<DoneIcon />}
+        icon={<DoneIcon className="border-l-2 border-gray-500"/>}
+
         color="success"
       />
       <List
         handleCategoryClick={handleCategoryClick}
         selectedCategory={selectedCategory}
         resetList={resetList}
+        setSelectedCategory={setSelectedCategory}
+        setResetList={setResetList}
+        setOpenEdit={setOpenEdit}
       />
       <NoteModal handleClose={handleClose} open={open}>
         <ModalCategory

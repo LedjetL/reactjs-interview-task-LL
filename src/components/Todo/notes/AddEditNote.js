@@ -10,6 +10,8 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import firebaseApp from "../../config/firebase";
+import DoneIcon from "@mui/icons-material/Done";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function AddEditNote({
   noteText,
@@ -89,20 +91,23 @@ function AddEditNote({
       />
       <div className="w-full flex justify-between">
         {openEdit?.id && (
-          <div className="w-full flex justify-start">
+          <div className="w-full flex justify-start mr-2">
             <NoteButton
-              text="Delete"
+              text="Delete Note"
               color="error"
-              className="w-32"
+              icon={<DeleteIcon className="border-l-2 border-gray-500 " />}
+              className="w-32 "
               onClick={deleteNote}
             />
           </div>
         )}
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-end ml-2  ">
           <NoteButton
-            text={openEdit?.id ? "Save" : "Create"}
+            text={openEdit?.id ? "Save Changes" : "Create"}
+           
             color="success"
-            className="w-32"
+            icon={<DoneIcon  className="border-l-2 border-gray-500 " />}
+            className="w-48  "
             onClick={saveNote}
           />
         </div>

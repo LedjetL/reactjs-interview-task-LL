@@ -3,7 +3,7 @@ import Card from "../category/Card";
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import app from "../../config/firebase";
 
-function List({ resetList, handleCategoryClick, selectedCategory }) {
+function List({ resetList, handleCategoryClick, selectedCategory,setResetList,setSelectedCategory,setOpenEdit }) {
   const db = getFirestore(app);
   const [categories, setCategories] = useState([]);
   async function getCategories() {
@@ -34,6 +34,9 @@ function List({ resetList, handleCategoryClick, selectedCategory }) {
           selectedCategory={selectedCategory}
           id={item.id}
           title={item.name}
+          setResetList={setResetList}
+          setSelectedCategory={setSelectedCategory}
+          setOpenEdit={setOpenEdit}
         />
       ))}
     </div>
