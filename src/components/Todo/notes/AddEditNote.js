@@ -107,7 +107,7 @@ function AddEditNote({
            
             color="success"
             icon={<DoneIcon  className="border-l-2 border-gray-500 " />}
-            className="w-48  "
+            className="w-52  "
             onClick={saveNote}
           />
         </div>
