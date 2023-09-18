@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+To run the app there is nothing complicated to do.
+Simply open downolad the files and run terminal by typing :
+npm start
+Afterwards the app should open in web and all the necessary functionalities are displayed.
+Simply enter your category that you want to include and then just create notes and edit the notes to your personal preferences.
+There is also the option to delete category,search,edit note,delete note.
+The data are stored in firebase.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Relating to the task please add answers to the following questions;
+How might you make this app more secure?
+How would you make this solution scale to millions of records?
 
-## Available Scripts
+To make the app more secure I would use the most popular ways of protection:
+1.Using HTTPS to encrypt data that are transmitted between the client and server.
+2.Using anti CSRF tokens that would protect the website by filtering and only accepting legit requests.
+3.Validation which is quite crucial to prevent injection attacks in XSS or SQL.
+4.Api Security
+5.Keeping everything up to date.
+6.Having a security plan to respond when the attack might happen.So measures that will help you in the worst case.
 
-In the project directory, you can run:
+    Making this solution scale to millions of records:
+        1.Firstly it is necessary to deliver a better code more structured and more refined.
+        2.Database needs to be optimized so it carries large datasets
+        3.Load balancers for traffic.
+        4.Cloud services since almost everything is migrating to Cloud
+        5.Content Compression
 
-### `npm start`
+    Now this part is my personal idea of giving to ideally make the website better and increase the revenue it will produce.It may be off topic but there's always room for improvment in any field.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        1.Marketing the app.Marketing is fristly the most important first step you should take when you promote something.
+        2.The app needs to be unique and provide everything that is necessary for the clients.
+        3.Instead of a simple note app i'd suggest adding a AI so it would help the persons to add reminders and the app would ping them by the necessary time.Working out,skin routines,meditating and such things.
+        4.The app would also be a help on mental awareness since most of the people suffer from stress it would e a tracker of your mood so you would be having a journal of how your emotions have affected your day.
+        5.To do list as the app actually is but making it more integrated and more automatic.
+        6.And to sum it up group notes.It would be helpful in projects and lots of task to be completed and also an option to check the tasks that are done.
