@@ -27,7 +27,7 @@ To make the app more secure I would use the most popular ways of protection:
 
     Now this part is my personal idea of giving to ideally make the website better and increase the revenue it will produce.It may be off topic but there's always room for improvment in any field.
 
-        1.Marketing the app.Marketing is fristly the most important first step you should take when you promote something.
+        1.Marketing the app.Marketing is firstly the most important first step you should take when you promote something.
         2.The app needs to be unique and provide everything that is necessary for the clients.
         3.Instead of a simple note app i'd suggest adding a AI so it would help the persons to add reminders and the app would ping them by the necessary time.Working out,skin routines,meditating and such things.
         4.The app would also be a help on mental awareness since most of the people suffer from stress it would e a tracker of your mood so you would be having a journal of how your emotions have affected your day.
