@@ -1,5 +1,5 @@
 To run the app there is nothing complicated to do.
-Simply open downolad the files and run terminal by typing :
+Simply open,download the files and run terminal by typing :
 npm start
 Afterwards the app should open in web and all the necessary functionalities are displayed.
 Simply enter your category that you want to include and then just create notes and edit the notes to your personal preferences.
